@@ -16,7 +16,6 @@ type PostMessageParams struct {
 
 	// Details.
 	Description string
-	Reason      string
 
 	// Actions.
 	Dashboard     string
@@ -32,10 +31,6 @@ func (p PostMessageParams) Validate() error {
 
 	if p.Description == "" {
 		errs = append(errs, fmt.Errorf("description is required"))
-	}
-
-	if p.Reason == "" {
-		errs = append(errs, fmt.Errorf("reason is required"))
 	}
 
 	if len(errs) > 0 {
@@ -84,7 +79,7 @@ func (c *Client) PostMessage(params PostMessageParams) error {
 		Type: BlockTypeSection,
 		Text: BlockSectionText{
 			Type: BlockTextTypeMarkdown,
-			Text: fmt.Sprintf("*%s*\n\n_%s_", params.Description, params.Reason),
+			Text: params.Description,
 		},
 	}
 

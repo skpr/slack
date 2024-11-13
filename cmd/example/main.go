@@ -17,7 +17,6 @@ func main() {
 			"Anomaly ID": "xxxxxx-yyyyyy-zzzzzz",
 		},
 		Description: "This is the description field",
-		Reason:      "This is the reason field.",
 		Dashboard:   "https://skpr.com.au",
 	}
 
